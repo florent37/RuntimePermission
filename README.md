@@ -29,7 +29,7 @@ launch(UI) {
        /*
         AlertDialog.Builder(this@MainActivityKotlinCoroutine )
                .setMessage("Please accept our permissions")
-               .setPositiveButton("yes", { dialog, which -> /*ask again*/ })
+               .setPositiveButton("yes", { dialog, which -> ask again })
                .setNegativeButton("no", { dialog, which -> dialog.dismiss(); })
                .show();
        */
@@ -64,7 +64,7 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
    /*
    AlertDialog.Builder(this@MainActivityKotlinCoroutine)
            .setMessage("Please accept our permissions")
-           .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) //ask again
+           .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); })
            .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
            .show();
    */
@@ -104,7 +104,7 @@ new RxPermissions(this).request(Manifest.permission.READ_CONTACTS, Manifest.perm
             /*
             new AlertDialog.Builder(MainActivity.this)
                     .setMessage("Please accept our permissions")
-                    .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) // ask again
+                    .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); })
                     .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
                     .show();
             */
@@ -189,7 +189,7 @@ askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCES
                 /*
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage("Please accept our permissions")
-                        .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) // ask again
+                        .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); })
                         .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
                         .show();
                 */
