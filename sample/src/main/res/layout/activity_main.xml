@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/java7"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Java7" />
+
+    <Button
+        android:id="@+id/java8"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Java8" />
+
+    <Button
+        android:id="@+id/rx"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Rx" />
+
+    <Button
+        android:id="@+id/kotlin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Kotlin" />
+
+    <Button
+        android:id="@+id/kotlinCoroutine"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="KotlinCoroutine" />
+
+    <Button
+        android:id="@+id/openSettings"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Open Settings" />
+
+
+</LinearLayout>
