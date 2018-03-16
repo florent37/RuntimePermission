@@ -18,17 +18,17 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'KotlinPleaseAnimate'
+    bintrayName = 'runtimepermission-rx'
     orgName = 'florent37'
 
     publishedGroupId = 'com.github.florent37'
-    libraryName = 'Kotlin Please Animate'
-    artifact = 'kotlinpleaseanimate'
+    libraryName = 'RuntimePermission-Rx'
+    artifact = 'runtimepermission-rx'
 
-    libraryDescription = 'Kotlin, Please Animate'
+    libraryDescription = 'RuntimePermission'
 
-    siteUrl = 'https://github.com/florent37/KotlinPleaseAnimate'
-    gitUrl = 'https://github.com/florent37/KotlinPleaseAnimate.git'
+    siteUrl = 'https://github.com/florent37/RuntimePermission'
+    gitUrl = 'https://github.com/florent37/RuntimePermission.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 

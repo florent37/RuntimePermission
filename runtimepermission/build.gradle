@@ -16,17 +16,17 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'KotlinPleaseAnimate'
+    bintrayName = 'runtimepermission'
     orgName = 'florent37'
 
     publishedGroupId = 'com.github.florent37'
-    libraryName = 'Kotlin Please Animate'
-    artifact = 'kotlinpleaseanimate'
+    libraryName = 'RuntimePermission'
+    artifact = 'runtimepermission'
 
-    libraryDescription = 'Kotlin, Please Animate'
+    libraryDescription = 'RuntimePermission'
 
-    siteUrl = 'https://github.com/florent37/KotlinPleaseAnimate'
-    gitUrl = 'https://github.com/florent37/KotlinPleaseAnimate.git'
+    siteUrl = 'https://github.com/florent37/RuntimePermission'
+    gitUrl = 'https://github.com/florent37/RuntimePermission.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 
@@ -38,6 +38,8 @@ ext {
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
 }
+
+
 
 
 
