@@ -42,6 +42,11 @@ launch(UI) {
 }
 ```
 
+### Download 
+```groovy
+implementation 'com.github.florent37:runtimepermission-kotlin:(last version)'
+```
+
 # Kotlin
 
 ```kotlin
@@ -71,6 +76,7 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 }
 ```
 
+### Download 
 ```groovy
 implementation 'com.github.florent37:runtimepermission-kotlin:(last version)'
 ```
@@ -111,7 +117,7 @@ new RxPermissions(this).request(Manifest.permission.READ_CONTACTS, Manifest.perm
     });
 ```
 
-
+### Download 
 ```groovy
 implementation 'com.github.florent37:runtimepermission-rx:(last version)'
 ```
@@ -153,7 +159,7 @@ askPermission(this)
      .ask();
 ```
 
-
+### Download 
 ```groovy
 implementation 'com.github.florent37:runtimepermission:(last version)'
 ```
@@ -196,6 +202,7 @@ askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCES
     });
 ```
 
+### Download 
 ```groovy
 implementation 'com.github.florent37:runtimepermission:(last version)'
 ```
