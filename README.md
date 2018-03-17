@@ -10,7 +10,7 @@ Simpliest way to ask runtime permissions on Android, choose your way :
 - [Java8](https://github.com/florent37/RuntimePermission#java8)
 - [Java7](https://github.com/florent37/RuntimePermission#java7)
 
-**No need to override Activity or Fragment **`onPermissionResult(code, permissions, result)`**using this library, you just have to executue RuntimePermission's methods** 
+**No need to override Activity or Fragment**`onPermissionResult(code, permissions, result)`**using this library, you just have to executue RuntimePermission's methods** 
 This will not cut your code flow
 
 # General Usage (cross language)
