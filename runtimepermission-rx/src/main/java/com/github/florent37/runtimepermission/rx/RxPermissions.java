@@ -57,14 +57,23 @@ public class RxPermissions {
         });
     }
 
+    /**
+     * use only request with an empty array to request all manifest permissions
+     */
     public Observable<PermissionResult> request(String... permissions) {
         return request(Arrays.asList(permissions));
     }
 
+    /**
+     * use only request with an empty array to request all manifest permissions
+     */
     public Single<PermissionResult> requestAsSingle(final String... permissions) {
         return requestAsSingle(Arrays.asList(permissions));
     }
 
+    /**
+     * use only request with an empty array to request all manifest permissions
+     */
     public Single<PermissionResult> requestAsSingle(final List<String> permissions) {
         return Single.create(new SingleOnSubscribe<PermissionResult>() {
             @Override
@@ -85,10 +94,16 @@ public class RxPermissions {
         });
     }
 
+    /**
+     * use only request with an empty array to request all manifest permissions
+     */
     public Flowable<PermissionResult> requestAsFlowable(String... permissions) {
         return requestAsFlowable(Arrays.asList(permissions));
     }
 
+    /**
+     * use only request with an empty array to request all manifest permissions
+     */
     public Flowable<PermissionResult> requestAsFlowable(final List<String> permissions) {
         return Flowable.create(new FlowableOnSubscribe<PermissionResult>() {
             @Override
@@ -113,6 +128,9 @@ public class RxPermissions {
         return requestAsMaybe(Arrays.asList(permissions));
     }
 
+    /**
+     * use only request with an empty array to request all manifest permissions
+     */
     public Maybe<PermissionResult> requestAsMaybe(final List<String> permissions) {
         return Maybe.create(new MaybeOnSubscribe<PermissionResult>() {
             @Override

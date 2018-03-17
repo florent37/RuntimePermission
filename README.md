@@ -13,6 +13,30 @@ Simpliest way to ask runtime permissions on Android, choose your way :
 **No need to override Activity or Fragment **`onPermissionResult(code, permissions, result)`**using this library, you just have to executue RuntimePermission's methods** 
 This will not cut your code flow
 
+# General Usage (cross language)
+
+RuntimePermission can automatically check **all** of your needed permissions
+
+For example, if you add to your *AndroidManifest.xml* :
+
+```xml
+<uses-permission android:name="android.permission.READ_CONTACTS" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+You can use `askPermission` without 
+
+In Kotlin: 
+```
+askPermission(){
+   //code
+}.onDeclined { e -> 
+   //code
+}
+```
+
+Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
+
 # Kotlin-Coroutines
 
 ```kotlin
