@@ -33,10 +33,7 @@ RuntimePermission can automatically check **all** of your needed permissions
 
 For example, if you add to your *AndroidManifest.xml* :
 
-```xml
-<uses-permission android:name="android.permission.READ_CONTACTS" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-```
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/manifest-permissions.png)](https://www.github.com/florent37/RuntimePermission)
 
 You can use `askPermission` without 
 
