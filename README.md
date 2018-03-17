@@ -1,6 +1,8 @@
 Runtime Permission
 ===================
 
+[![CircleCI](https://circleci.com/gh/florent37/RuntimePermission/tree/master.svg?style=svg)](https://circleci.com/gh/florent37/RuntimePermission/tree/master)
+
 **Work in progress**
 
 Simpliest way to ask runtime permissions on Android, choose your way : 
@@ -14,6 +16,14 @@ Simpliest way to ask runtime permissions on Android, choose your way :
 This will not cut your code flow
 
 # General Usage (cross language)
+
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
+```java
+dependencies {
+    compile 'com.github.florent37:runtime-permission:(lastest version)'
+}
+```
+
 
 ## Detect Permissions
 
@@ -93,6 +103,8 @@ launch(UI) {
 ```
 
 ### Download 
+
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
 implementation 'com.github.florent37:runtimepermission-kotlin:(last version)'
 ```
@@ -127,6 +139,8 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 ```
 
 ### Download 
+
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
 implementation 'com.github.florent37:runtimepermission-kotlin:(last version)'
 ```
@@ -209,7 +223,9 @@ askPermission(this)
      .ask();
 ```
 
-### Download 
+### Download
+ 
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
 implementation 'com.github.florent37:runtimepermission:(last version)'
 ```
@@ -253,6 +269,8 @@ askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCES
 ```
 
 ### Download 
+
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
 implementation 'com.github.florent37:runtimepermission:(last version)'
 ```
