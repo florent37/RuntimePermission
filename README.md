@@ -3,6 +3,8 @@ Runtime Permission
 
 [![CircleCI](https://circleci.com/gh/florent37/RuntimePermission/tree/master.svg?style=svg)](https://circleci.com/gh/florent37/RuntimePermission/tree/master)
 
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/intro.png)](https://www.github.com/florent37/RuntimePermission)
+
 **Work in progress**
 
 Simpliest way to ask runtime permissions on Android, choose your way : 
