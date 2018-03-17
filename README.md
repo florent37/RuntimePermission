@@ -15,6 +15,8 @@ This will not cut your code flow
 
 # General Usage (cross language)
 
+## Detect Permissions
+
 RuntimePermission can automatically check **all** of your needed permissions
 
 For example, if you add to your *AndroidManifest.xml* :
@@ -29,13 +31,30 @@ You can use `askPermission` without
 In Kotlin: 
 ```
 askPermission(){
-   //code
+   //all of your permissions have been accepted by the user
 }.onDeclined { e -> 
-   //code
+   //at least one permission have been declined by the user 
 }
 ```
 
 Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
+
+## Manually call permissions
+
+You just have to call `askPermission` with your list of permissions
+
+In Kotlin: 
+```
+askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION){
+   //all of your permissions have been accepted by the user
+}.onDeclined { e -> 
+   //at least one permission have been declined by the user 
+}
+```
+
+Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
+
+
 
 # Kotlin-Coroutines
 
