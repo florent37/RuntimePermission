@@ -35,9 +35,9 @@ For example, if you add to your *AndroidManifest.xml* :
 
 [![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/manifest-permissions.png)](https://www.github.com/florent37/RuntimePermission)
 
-You can use `askPermission` without 
+You can use `askPermission` without specifying any permission
 
-In Kotlin: 
+For example, in Kotlin: 
 ```
 askPermission(){
    //all of your permissions have been accepted by the user
@@ -52,7 +52,7 @@ Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
 
 ## Manually call permissions
 
-You just have to call `askPermission` with your list of permissions
+You just have to call `askPermission` with the list of wanted permissions
 
 In Kotlin: 
 ```
