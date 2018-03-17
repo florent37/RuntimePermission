@@ -52,9 +52,7 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 }
 ```
 
-Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
-
-
+Will ask for **CONTACTS** and **LOCALISATION** permissions
 
 # Kotlin-Coroutines
 
