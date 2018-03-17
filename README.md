@@ -37,6 +37,8 @@ askPermission(){
 }
 ```
 
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/permissions.png)](https://www.github.com/florent37/RuntimePermission)
+
 Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
 
 ## Manually call permissions
@@ -51,6 +53,8 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
    //at least one permission have been declined by the user 
 }
 ```
+
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/permissions.png)](https://www.github.com/florent37/RuntimePermission)
 
 Will ask for **CONTACTS** and **LOCALISATION** permissions
 

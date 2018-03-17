@@ -8,10 +8,14 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    dexOptions {
+        preDexLibraries = false
+    }
 }
 
 dependencies {
-    implementation project(':runtimepermission')
+    api project(':runtimepermission')
     implementation 'com.android.support:support-fragment:'+project.supportVersion
     implementation "io.reactivex.rxjava2:rxjava:2.1.9"
 }

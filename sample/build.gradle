@@ -7,9 +7,13 @@ android {
     defaultConfig {
         minSdkVersion project.MIN_SDK
         targetSdkVersion project.TARGET_SDK
-        applicationId "com.github.florent37.permissions.sample"
+        applicationId "com.github.florent37.runtimepermissions.sample"
         versionCode 1
         versionName "1.0"
+
+        dexOptions {
+            preDexLibraries = false
+        }
     }
 
     compileOptions {

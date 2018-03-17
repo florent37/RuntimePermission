@@ -9,12 +9,16 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    dexOptions {
+        preDexLibraries = false
+    }
 }
 
 dependencies {
     implementation 'com.android.support:support-fragment:'+project.supportVersion
 
-    implementation project(':runtimepermission')
+    api project(':runtimepermission')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
