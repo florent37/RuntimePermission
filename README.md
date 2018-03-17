@@ -253,6 +253,14 @@ askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCES
 implementation 'com.github.florent37:runtimepermission:(last version)'
 ```
 
+# How to Contribute
+
+We welcome your contributions to this project. 
+
+The best way to submit a patch is to send us a [pull request](https://help.github.com/articles/about-pull-requests/). 
+
+To report a specific problem or feature request, open a new issue on Github. 
+
 # License
 
     Copyright 2018 florent37, Inc.
