@@ -267,13 +267,6 @@ askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCES
     });
 ```
 
-### Download 
-
-[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
-```groovy
-implementation 'com.github.florent37:runtimepermission:(last version)'
-```
-
 # How to Contribute
 
 We welcome your contributions to this project. 
