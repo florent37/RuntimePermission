@@ -22,7 +22,7 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = rootProject.ext.libraryName
+    bintrayName = rootProject.ext.libraryName+'-rx'
     orgName = 'florent37'
 
     publishedGroupId = rootProject.ext.libraryGroup
