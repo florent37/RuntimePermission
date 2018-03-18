@@ -24,10 +24,10 @@ ext {
     orgName = 'florent37'
 
     publishedGroupId = rootProject.ext.libraryGroup
-    libraryName = 'Runtime Permission'
+    libraryName = rootProject.ext.libraryDescription
     artifact = rootProject.ext.libraryName
 
-    libraryDescription = 'Runtime Permission'
+    libraryDescription = rootProject.ext.libraryDescription
 
     siteUrl = rootProject.ext.github
     gitUrl = rootProject.ext.github+'.git'

@@ -4,7 +4,7 @@ import android.Manifest
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.florent37.runtimepermission.sample.AppendText.appendText
-import com.github.florent37.runtimepermission.kotlin.askPermission
+import com.github.florent37.runtimepermission.kotlin.experimental.askPermission
 import kotlinx.android.synthetic.main.activity_request.*
 
 /**

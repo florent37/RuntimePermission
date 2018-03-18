@@ -36,10 +36,10 @@ ext {
     orgName = 'florent37'
 
     publishedGroupId = rootProject.ext.libraryGroup
-    libraryName = 'Runtime Permission Kotlin'
+    libraryName = rootProject.ext.libraryDescription+' Kotlin'
     artifact = rootProject.ext.libraryName+'-kotlin'
 
-    libraryDescription = 'Runtime Permission Kotlin'
+    libraryDescription = rootProject.ext.libraryDescription+' Kotlin'
 
     siteUrl = rootProject.ext.github
     gitUrl = rootProject.ext.github+'.git'

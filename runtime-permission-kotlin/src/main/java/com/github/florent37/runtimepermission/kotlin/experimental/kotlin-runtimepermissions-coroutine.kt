@@ -1,9 +1,11 @@
-package com.github.florent37.runtimepermission.kotlin
+package com.github.florent37.runtimepermission.kotlin.experimental
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import com.github.florent37.runtimepermission.RuntimePermission
 import com.github.florent37.runtimepermission.PermissionResult
+import com.github.florent37.runtimepermission.kotlin.NoActivityException
+import com.github.florent37.runtimepermission.kotlin.PermissionException
 import kotlin.coroutines.experimental.suspendCoroutine
 
 suspend fun FragmentActivity.askPermission(vararg permissions: String): PermissionResult = suspendCoroutine { continuation ->
