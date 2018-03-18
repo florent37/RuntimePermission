@@ -2,7 +2,7 @@ version: 2.0
 
 references:
   workspace: &workspace
-    ~/sample
+    ~/RuntimePermission
 
   config_android: &config_android
     working_directory: *workspace
