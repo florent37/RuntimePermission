@@ -11,13 +11,6 @@ references:
     environment:
       TERM: dumb
 
-  config_gcloud: &config_gcloud
-    working_directory: *workspace
-    docker:
-      - image: google/cloud-sdk:latest
-    environment:
-      TERM: dumb
-
   cache_key: &cache_key
     key: jars-{{ checksum "build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
   restore_cache: &restore_cache
