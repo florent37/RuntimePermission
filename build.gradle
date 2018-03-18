@@ -23,7 +23,6 @@ allprojects {
     }
 }
 
-
 ext {
     COMPILE_SDK=27
     TARGET_SDK=27
@@ -32,5 +31,9 @@ ext {
     targetCompatibilityVersion = JavaVersion.VERSION_1_8
     supportVersion = "27.0.2"
 
+    github = 'https://github.com/florent37/RuntimePermission'
+
+    libraryGroup = 'com.github.florent37'
+    libraryName = 'runtime-permission'
     libraryVersion = "1.0.0"
 }

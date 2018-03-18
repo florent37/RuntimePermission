@@ -18,7 +18,7 @@ android {
 dependencies {
     implementation 'com.android.support:support-fragment:'+project.supportVersion
 
-    api project(':runtimepermission')
+    api project(':runtime-permission')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
@@ -32,17 +32,17 @@ kotlin {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'runtimepermission-kotlin'
+    bintrayName = rootProject.ext.libraryName+'-kotlin'
     orgName = 'florent37'
 
-    publishedGroupId = 'com.github.florent37'
-    libraryName = 'RuntimePermission-Kotlin'
-    artifact = 'runtimepermission-kotlin'
+    publishedGroupId = rootProject.ext.libraryGroup
+    libraryName = 'Runtime Permission Kotlin'
+    artifact = rootProject.ext.libraryName+'-kotlin'
 
-    libraryDescription = 'RuntimePermission'
+    libraryDescription = 'Runtime Permission Kotlin'
 
-    siteUrl = 'https://github.com/florent37/RuntimePermission'
-    gitUrl = 'https://github.com/florent37/RuntimePermission.git'
+    siteUrl = rootProject.ext.github
+    gitUrl = rootProject.ext.github+'.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 

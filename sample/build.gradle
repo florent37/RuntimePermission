@@ -23,9 +23,9 @@ android {
 }
 
 dependencies {
-    implementation project(':runtimepermission')
-    implementation project(':runtimepermission-rx')
-    implementation project(':runtimepermission-kotlin')
+    implementation project(':runtime-permission')
+    implementation project(':runtime-permission-rx')
+    implementation project(':runtime-permission-kotlin')
 
     implementation 'com.android.support:appcompat-v7:'+project.supportVersion
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'

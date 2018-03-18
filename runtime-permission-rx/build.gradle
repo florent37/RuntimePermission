@@ -15,24 +15,24 @@ android {
 }
 
 dependencies {
-    api project(':runtimepermission')
+    api project(':runtime-permission')
     implementation 'com.android.support:support-fragment:'+project.supportVersion
     implementation "io.reactivex.rxjava2:rxjava:2.1.9"
 }
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'runtimepermission-rx'
+    bintrayName = rootProject.ext.libraryName
     orgName = 'florent37'
 
-    publishedGroupId = 'com.github.florent37'
-    libraryName = 'RuntimePermission-Rx'
-    artifact = 'runtimepermission-rx'
+    publishedGroupId = rootProject.ext.libraryGroup
+    libraryName = 'Runtime Permission Rx'
+    artifact = rootProject.ext.libraryName+'-rx'
 
-    libraryDescription = 'RuntimePermission'
+    libraryDescription = 'Runtime Permission Rx'
 
-    siteUrl = 'https://github.com/florent37/RuntimePermission'
-    gitUrl = 'https://github.com/florent37/RuntimePermission.git'
+    siteUrl = rootProject.ext.github
+    gitUrl = rootProject.ext.github+'.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 
