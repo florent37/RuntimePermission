@@ -1,4 +1,4 @@
-package com.github.florent37.runtimepermission.kotlin.experimental
+package com.github.florent37.runtimepermission.kotlin.coroutines.experimental
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
