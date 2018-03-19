@@ -276,6 +276,11 @@ The best way to submit a patch is to send us a [pull request](https://help.githu
 
 To report a specific problem or feature request, open a new issue on Github. 
 
+# Credits
+
+Manifest permission detection has been forked from https://github.com/sensorberg-dev/permission-bitte, 
+thanks **Sensorberg GmbH**
+
 # License
 
     Copyright 2018 florent37, Inc.
