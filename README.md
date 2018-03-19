@@ -106,7 +106,7 @@ launch(UI) {
 
 [ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
-implementation 'com.github.florent37:runtimepermission-kotlin:(last version)'
+implementation 'com.github.florent37:runtime-permission-kotlin:(last version)'
 ```
 
 # Kotlin
@@ -142,7 +142,7 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 
 [ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
-implementation 'com.github.florent37:runtimepermission-kotlin:(last version)'
+implementation 'com.github.florent37:runtime-permission-kotlin:(last version)'
 ```
 
 # RxJava
@@ -183,7 +183,7 @@ new RxPermissions(this).request(Manifest.permission.READ_CONTACTS, Manifest.perm
 
 ### Download 
 ```groovy
-implementation 'com.github.florent37:runtimepermission-rx:(last version)'
+implementation 'com.github.florent37:runtime-permission-rx:(last version)'
 ```
 
 # Java8
@@ -227,7 +227,7 @@ askPermission(this)
  
 [ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```groovy
-implementation 'com.github.florent37:runtimepermission:(last version)'
+implementation 'com.github.florent37:runtime-permission:(last version)'
 ```
  
 # Java7
