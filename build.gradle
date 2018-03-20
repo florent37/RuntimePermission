@@ -35,6 +35,6 @@ ext {
 
     libraryGroup = 'com.github.florent37'
     libraryName = 'runtime-permission'
-    libraryVersion = "1.0.0"
+    libraryVersion = "1.0.1"
     libraryDescription = 'Runtime Permission'
 }
