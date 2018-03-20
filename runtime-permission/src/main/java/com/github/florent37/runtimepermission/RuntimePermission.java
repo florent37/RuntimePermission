@@ -232,7 +232,7 @@ public class RuntimePermission {
             if(oldFragment != null){
                 oldFragment.setListener(listener);
             } else {
-                final PermissionFragment newFragment = PermissionFragment.newInstance(permissionsToRequest);
+                final PermissionFragment newFragment = PermissionFragment.newInstance(permissions);
                 newFragment.setListener(listener);
 
                 activity.runOnUiThread(new Runnable() {
