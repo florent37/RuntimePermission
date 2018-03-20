@@ -17,13 +17,14 @@ fun FragmentActivity.askPermission(vararg permissions: String, block: (Permissio
             .onResponse(block))
 }
 
-class KotlinRuntimePermission(private val runtimePermission: RuntimePermission) {
+class KotlinRuntimePermission(var runtimePermission: RuntimePermission) {
 
-    var declinedBlock: ((PermissionResult) -> Unit)? = null
+    init {
+        runtimePermission.ask()
+    }
 
     fun onDeclined(block: ((PermissionResult) -> Unit)) : KotlinRuntimePermission {
-        this.declinedBlock = block
-        runtimePermission.ask()
+        runtimePermission.onDenied(block)
         return this
     }
 }
