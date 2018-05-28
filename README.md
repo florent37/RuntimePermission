@@ -6,8 +6,6 @@ Runtime Permission
 
 [![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/intro.png)](https://www.github.com/florent37/RuntimePermission)
 
-**Work in progress**
-
 Simpliest way to ask runtime permissions on Android, choose your way : 
 - [Kotlin](https://github.com/florent37/RuntimePermission#kotlin)
 - [Kotlin with Coroutines](https://github.com/florent37/RuntimePermission#kotlin-coroutines)
