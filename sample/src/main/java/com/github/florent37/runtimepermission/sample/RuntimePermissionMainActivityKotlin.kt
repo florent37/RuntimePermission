@@ -5,18 +5,18 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.florent37.runtimepermission.sample.AppendText.appendText
 import com.github.florent37.runtimepermission.kotlin.askPermission
-import kotlinx.android.synthetic.main.activity_request.*
+import kotlinx.android.synthetic.main.runtime_permissions_activity_request.*
 
 /**
  * Sample of a very basic activity asking for permission.
  * It shows a button to trigger the permission dialog if permission is needed,
  * and hide it when it doesn't
  */
-class MainActivityKotlin : AppCompatActivity() {
+class RuntimePermissionMainActivityKotlin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_request)
+        setContentView(R.layout.runtime_permissions_activity_request)
 
         requestView.setOnClickListener {
             myMethod()
@@ -35,7 +35,7 @@ class MainActivityKotlin : AppCompatActivity() {
                 appendText(resultView, it)
             }
             /*
-            AlertDialog.Builder(this@MainActivityKotlinCoroutine)
+            AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine)
                     .setMessage("Please accept our permissions")
                     .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) //ask again
                     .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })

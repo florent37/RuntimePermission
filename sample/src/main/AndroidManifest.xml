@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,18 +19,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".RuntimePermissionMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivityKotlinCoroutine" />
-        <activity android:name=".MainActivityKotlin" />
-        <activity android:name=".MainActivityRx" />
-        <activity android:name=".MainActivityJava8" />
-        <activity android:name=".MainActivityJava7" />
+        <activity android:name=".RuntimePermissionMainActivityKotlinCoroutine" />
+        <activity android:name=".RuntimePermissionMainActivityKotlin" />
+        <activity android:name=".RuntimePermissionMainActivityRx" />
+        <activity android:name=".RuntimePermissionMainActivityJava8" />
+        <activity android:name=".RuntimePermissionMainActivityJava7" />
     </application>
 
 </manifest>

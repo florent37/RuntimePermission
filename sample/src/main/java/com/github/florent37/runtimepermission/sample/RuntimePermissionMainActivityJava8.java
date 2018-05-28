@@ -14,7 +14,7 @@ import static com.github.florent37.runtimepermission.sample.AppendText.appendTex
  * It shows a button to trigger the permission dialog if permission is needed,
  * and hide it when it doesn't
  */
-public class MainActivityJava8 extends AppCompatActivity {
+public class RuntimePermissionMainActivityJava8 extends AppCompatActivity {
 
     private TextView resultView;
     private View requestView;
@@ -22,7 +22,7 @@ public class MainActivityJava8 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request);
+        setContentView(R.layout.runtime_permissions_activity_request);
 
         resultView = findViewById(R.id.resultView);
         requestView = findViewById(R.id.requestView);
@@ -31,7 +31,7 @@ public class MainActivityJava8 extends AppCompatActivity {
     }
 
     private void myMethod(){
-        askPermission(MainActivityJava8.this)
+        askPermission(RuntimePermissionMainActivityJava8.this)
                 .request(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
 
                 .onAccepted((result) -> {
@@ -49,7 +49,7 @@ public class MainActivityJava8 extends AppCompatActivity {
                     //permission denied, but you can ask again, eg:
 
                             /*
-                            new AlertDialog.Builder(MainActivity.this)
+                            new AlertDialog.Builder(RuntimePermissionMainActivity.this)
                                     .setMessage("Please accept our permissions")
                                     .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) // ask again
                                     .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
