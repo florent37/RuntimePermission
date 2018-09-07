@@ -34,4 +34,3 @@ suspend fun Fragment.askPermission(vararg permissions: String): PermissionResult
                 .ask()
     }
 }
-

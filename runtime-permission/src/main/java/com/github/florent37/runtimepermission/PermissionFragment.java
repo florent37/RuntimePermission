@@ -23,7 +23,7 @@ public class PermissionFragment extends Fragment {
     private List<String> permissionsList = new ArrayList<>();
 
     @Nullable
-    private WeakReference<PermissionListener> listener;
+    private PermissionListener listener;
 
     public PermissionFragment() {
         setRetainInstance(true);
@@ -67,25 +67,23 @@ public class PermissionFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_CODE && permissions.length > 0 && this.listener != null) {
-            final PermissionListener listener = this.listener.get();
+            final PermissionListener listener = this.listener;
 
             final List<String> acceptedPermissions = new ArrayList<>();
             final List<String> askAgainPermissions = new ArrayList<>();
             final List<String> refusedPermissions = new ArrayList<>();
 
-            if (listener != null) {
-                for (int i = 0; i < permissions.length; i++) {
-                    final String permissionName = permissions[i];
-                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        acceptedPermissions.add(permissionName);
+            for (int i = 0; i < permissions.length; i++) {
+                final String permissionName = permissions[i];
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    acceptedPermissions.add(permissionName);
+                } else {
+                    if (shouldShowRequestPermissionRationale(permissionName)) {
+                        //listener.onDenied(permissionResult);
+                        askAgainPermissions.add(permissionName);
                     } else {
-                        if (shouldShowRequestPermissionRationale(permissionName)) {
-                            //listener.onDenied(permissionResult);
-                            askAgainPermissions.add(permissionName);
-                        } else {
-                            refusedPermissions.add(permissionName);
-                            //listener.onForeverDenied(permissionResult);
-                        }
+                        refusedPermissions.add(permissionName);
+                        //listener.onForeverDenied(permissionResult);
                     }
                 }
 
@@ -100,13 +98,7 @@ public class PermissionFragment extends Fragment {
     }
 
     public PermissionFragment setListener(@Nullable PermissionListener listener) {
-        if (listener != null) {
-            if (this.listener != null) {
-                this.listener.clear();
-            }
-
-            this.listener = new WeakReference<>(listener);
-        }
+        this.listener = listener;
         return this;
     }
 
