@@ -86,11 +86,9 @@ public class PermissionFragment extends Fragment {
                         //listener.onForeverDenied(permissionResult);
                     }
                 }
-
-                //all accepted
-                listener.onRequestPermissionsResult(acceptedPermissions, refusedPermissions, askAgainPermissions);
-
             }
+            listener.onRequestPermissionsResult(acceptedPermissions, refusedPermissions, askAgainPermissions);
+
             getFragmentManager().beginTransaction()
                     .remove(this)
                     .commitAllowingStateLoss();
