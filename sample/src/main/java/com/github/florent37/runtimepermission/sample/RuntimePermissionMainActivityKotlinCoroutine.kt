@@ -2,6 +2,7 @@ package com.github.florent37.runtimepermission.sample
 
 import android.Manifest
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import com.github.florent37.runtimepermission.sample.AppendText.appendText
 import com.github.florent37.runtimepermission.kotlin.PermissionException
@@ -41,13 +42,13 @@ class RuntimePermissionMainActivityKotlinCoroutine : AppCompatActivity() {
             }
             //but you can ask them again, eg:
 
-            /*
+
              AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine )
                     .setMessage("Please accept our permissions")
-                    .setPositiveButton("yes", { dialog, which -> /*ask again*/ })
+                    .setPositiveButton("yes", { dialog, which -> /* ask again */ e.askAgain() })
                     .setNegativeButton("no", { dialog, which -> dialog.dismiss(); })
                     .show();
-            */
+
 
             appendText(resultView, "ForeverDenied")
             //the list of forever denied permissions, user has check 'never ask again'

@@ -85,7 +85,7 @@ launch(UI) {
        /*
         AlertDialog.Builder(this@MainActivityKotlinCoroutine )
                .setMessage("Please accept our permissions")
-               .setPositiveButton("yes", { dialog, which -> ask again })
+               .setPositiveButton("yes", { dialog, which -> e.askAgain() })
                .setNegativeButton("no", { dialog, which -> dialog.dismiss(); })
                .show();
        */

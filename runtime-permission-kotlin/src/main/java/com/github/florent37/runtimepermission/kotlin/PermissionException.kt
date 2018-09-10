@@ -22,6 +22,10 @@ class PermissionException(val permissionResult: PermissionResult) : Exception() 
         permissionResult.goToSettings()
     }
 
+    fun askAgain(){
+        permissionResult.askAgain()
+    }
+
     fun isAccepted(): Boolean {
         return permissionResult.isAccepted
     }
