@@ -31,6 +31,13 @@
         <activity android:name=".RuntimePermissionMainActivityRx" />
         <activity android:name=".RuntimePermissionMainActivityJava8" />
         <activity android:name=".RuntimePermissionMainActivityJava7" />
+        <activity android:name=".TestActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

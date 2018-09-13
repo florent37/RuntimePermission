@@ -24,7 +24,11 @@ class KotlinRuntimePermission(var runtimePermission: RuntimePermission) {
     }
 
     fun onDeclined(block: ((PermissionResult) -> Unit)) : KotlinRuntimePermission {
-        runtimePermission.onDenied(block)
+        runtimePermission.onResponse{
+            if(it.hasDenied() || it.hasForeverDenied()){
+                block(it)
+            }
+        }
         return this
     }
 }
