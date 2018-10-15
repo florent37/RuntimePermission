@@ -8,8 +8,10 @@ import com.github.florent37.runtimepermission.sample.AppendText.appendText
 import com.github.florent37.runtimepermission.kotlin.PermissionException
 import com.github.florent37.runtimepermission.kotlin.coroutines.experimental.askPermission
 import kotlinx.android.synthetic.main.runtime_permissions_activity_request.*
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * Sample of a very basic activity asking for permission.
@@ -27,7 +29,7 @@ class RuntimePermissionMainActivityKotlinCoroutine : AppCompatActivity() {
         }
     }
 
-    fun myMethod() = launch(UI) {
+    fun myMethod() = GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
         try {
             val result = askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
             //all permissions already granted or just granted
@@ -43,7 +45,7 @@ class RuntimePermissionMainActivityKotlinCoroutine : AppCompatActivity() {
             //but you can ask them again, eg:
 
 
-             AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine )
+            AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine)
                     .setMessage("Please accept our permissions")
                     .setPositiveButton("yes", { dialog, which -> /* ask again */ e.askAgain() })
                     .setNegativeButton("no", { dialog, which -> dialog.dismiss(); })

@@ -6,14 +6,16 @@ import com.github.florent37.runtimepermission.RuntimePermission
 import com.github.florent37.runtimepermission.PermissionResult
 import com.github.florent37.runtimepermission.kotlin.NoActivityException
 import com.github.florent37.runtimepermission.kotlin.PermissionException
-import kotlin.coroutines.experimental.suspendCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 suspend fun FragmentActivity.askPermission(vararg permissions: String): PermissionResult = suspendCoroutine { continuation ->
     var resumed = false
     RuntimePermission.askPermission(this)
             .request(permissions.toList())
             .onResponse { result ->
-                if(!resumed) {
+                if (!resumed) {
                     resumed = true
                     when {
                         result.isAccepted -> continuation.resume(result)
@@ -31,7 +33,7 @@ suspend fun Fragment.askPermission(vararg permissions: String): PermissionResult
         else -> RuntimePermission.askPermission(this)
                 .request(permissions.toList())
                 .onResponse { result ->
-                    if(!resumed) {
+                    if (!resumed) {
                         resumed = true
                         when {
                             result.isAccepted -> continuation.resume(result)
