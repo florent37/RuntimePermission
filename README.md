@@ -69,34 +69,43 @@ Will ask for **CONTACTS** and **LOCALISATION** permissions
 # Kotlin-Coroutines
 
 ```kotlin
-launch(UI) {
-   try {
-       val result = askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
-       //all permissions already granted or just granted
-       
-       your action
-   } catch (e: PermissionException) {
-       //the list of denied permissions
-       e.denied.forEach { permission ->
-      
-       }
-       //but you can ask them again, eg:
+GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
+    try {
+        val result = askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
+        //all permissions already granted or just granted
+        //your action
+        resultView.setText("Accepted :${result.accepted.toString()}")
 
-       /*
-        AlertDialog.Builder(this@MainActivityKotlinCoroutine )
-               .setMessage("Please accept our permissions")
-               .setPositiveButton("yes", { dialog, which -> e.askAgain() })
-               .setNegativeButton("no", { dialog, which -> dialog.dismiss(); })
-               .show();
-       */
+    } catch (e: PermissionException) {
+        if (e.hasDenied()) {
+            appendText(resultView, "Denied :")
+            //the list of denied permissions
+            e.denied.forEach { permission ->
+                appendText(resultView, permission)
+            }
+            //but you can ask them again, eg:
 
-       //the list of forever denied permissions, user has check 'never ask again'
-       e.foreverDenied.forEach { permission ->
-       
-       }
-       //you need to open setting manually if you really need it
-       //e.goToSettings();
-   }
+            AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine)
+                    .setMessage("Please accept our permissions")
+                    .setPositiveButton("yes") { dialog, which ->
+                        e.askAgain()
+                    }
+                    .setNegativeButton("no") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    .show();
+        }
+
+        if (e.hasForeverDenied()) {
+            appendText(resultView, "ForeverDenied")
+            //the list of forever denied permissions, user has check 'never ask again'
+            e.foreverDenied.forEach { permission ->
+                appendText(resultView, permission)
+            }
+            //you need to open setting manually if you really need it
+            e.goToSettings();
+        }
+    }
 }
 ```
 
@@ -115,24 +124,33 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
   
    your action
 }.onDeclined { e ->
-   //the list of denied permissions
-   e.denied.forEach{
-       
-   }
-   /*
-   AlertDialog.Builder(this@MainActivityKotlinCoroutine)
-           .setMessage("Please accept our permissions")
-           .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); })
-           .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
-           .show();
-   */
+   if (e.hasDenied()) {
+       appendText(resultView, "Denied :")
+       //the list of denied permissions
+       e.denied.forEach {
+           appendText(resultView, it)
+       }
 
-   //the list of forever denied permissions, user has check 'never ask again'
-   e.foreverDenied.forEach{
-       
+       AlertDialog.Builder(this@RuntimePermissionMainActivityKotlin)
+               .setMessage("Please accept our permissions")
+               .setPositiveButton("yes") { dialog, which ->
+                   e.askAgain();
+               } //ask again
+               .setNegativeButton("no") { dialog, which ->
+                   dialog.dismiss();
+               }
+               .show();
    }
-   // you need to open setting manually if you really need it
-   //e.goToSettings();
+
+   if(e.hasForeverDenied()) {
+       appendText(resultView, "ForeverDenied :")
+       //the list of forever denied permissions, user has check 'never ask again'
+       e.foreverDenied.forEach {
+           appendText(resultView, it)
+       }
+       // you need to open setting manually if you really need it
+       e.goToSettings();
+   }
 }
 ```
 
@@ -152,29 +170,36 @@ new RxPermissions(this).request(Manifest.permission.READ_CONTACTS, Manifest.perm
 
         your action
     }, throwable -> {
-        if (throwable instanceof RxPermissions.Error) {
-            final PermissionResult result = ((RxPermissions.Error) throwable).getResult();
+        final PermissionResult result = ((RxPermissions.Error) throwable).getResult();
 
+        if(result.hasDenied()) {
+            appendText(resultView, "Denied :");
             //the list of denied permissions
             for (String permission : result.getDenied()) {
-                
+                appendText(resultView, permission);
             }
             //permission denied, but you can ask again, eg:
 
-            /*
-            new AlertDialog.Builder(MainActivity.this)
-                    .setMessage("Please accept our permissions")
-                    .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); })
-                    .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
-                    .show();
-            */
 
+            new AlertDialog.Builder(RuntimePermissionMainActivityRx.this)
+                    .setMessage("Please accept our permissions")
+                    .setPositiveButton("yes", (dialog, which) -> {
+                        result.askAgain();
+                    }) // ask again
+                    .setNegativeButton("no", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .show();
+        }
+
+        if(result.hasForeverDenied()) {
+            appendText(resultView, "ForeverDenied :");
             //the list of forever denied permissions, user has check 'never ask again'
             for (String permission : result.getForeverDenied()) {
-               
+                appendText(resultView, permission);
             }
             // you need to open setting manually if you really need it
-            //result.goToSettings();
+            result.goToSettings();
         }
     });
 ```
@@ -196,27 +221,32 @@ askPermission(this)
          your action
      })
      .onDenied((result) -> {
+         appendText(resultView, "Denied :");
          //the list of denied permissions
          for (String permission : result.getDenied()) {
              appendText(resultView, permission);
          }
          //permission denied, but you can ask again, eg:
 
-         /*
-         new AlertDialog.Builder(MainActivity.this)
+         new AlertDialog.Builder(RuntimePermissionMainActivityJava8.this)
                  .setMessage("Please accept our permissions")
-                 .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) // ask again
-                 .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
+                 .setPositiveButton("yes", (dialog, which) -> {
+                     result.askAgain();
+                 }) // ask again
+                 .setNegativeButton("no", (dialog, which) -> {
+                     dialog.dismiss();
+                 })
                  .show();
-         */
+
      })
      .onForeverDenied((result) -> {
+         appendText(resultView, "ForeverDenied :");
          //the list of forever denied permissions, user has check 'never ask again'
          for (String permission : result.getForeverDenied()) {
-             
+             appendText(resultView, permission);
          }
          // you need to open setting manually if you really need it
-         //result.goToSettings();
+         result.goToSettings();
      })
      .ask();
 ```
@@ -242,26 +272,36 @@ askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCES
 
         @Override
         public void onDenied(RuntimePermission runtimePermission, List<String> denied, List<String> foreverDenied) {
-            //the list of denied permissions
-            for (String permission : denied) {
-               
-            }
-            //permission denied, but you can ask again, eg:
+            if(permissionResult.hasDenied()) {
+                appendText(resultView, "Denied :");
+                //the list of denied permissions
+                for (String permission : denied) {
+                    appendText(resultView, permission);
+                }
 
-                /*
-                new AlertDialog.Builder(MainActivity.this)
+                //permission denied, but you can ask again, eg:
+
+                new AlertDialog.Builder(RuntimePermissionMainActivityJava7.this)
                         .setMessage("Please accept our permissions")
-                        .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); })
-                        .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
+                        .setPositiveButton("yes", (dialog, which) -> {
+                            permissionResult.askAgain();
+                        }) // ask again
+                        .setNegativeButton("no", (dialog, which) -> {
+                            dialog.dismiss();
+                        })
                         .show();
-                */
-
-            //the list of forever denied permissions, user has check 'never ask again'
-            for (String permission : foreverDenied) {
-                
             }
-            // you need to open setting manually if you really need it
-            //runtimePermission.goToSettings();
+
+
+            if(permissionResult.hasForeverDenied()) {
+                appendText(resultView, "ForeverDenied :");
+                //the list of forever denied permissions, user has check 'never ask again'
+                for (String permission : foreverDenied) {
+                    appendText(resultView, permission);
+                }
+                // you need to open setting manually if you really need it
+                permissionResult.goToSettings();
+            }
         }
     });
 ```

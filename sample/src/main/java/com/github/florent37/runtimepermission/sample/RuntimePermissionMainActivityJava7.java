@@ -68,7 +68,7 @@ public class RuntimePermissionMainActivityJava7 extends AppCompatActivity {
 
                     @Override
                     public void onDenied(PermissionResult permissionResult, List<String> denied, List<String> foreverDenied) {
-                        if(!denied.isEmpty()) {
+                        if(permissionResult.hasDenied()) {
                             appendText(resultView, "Denied :");
                             //the list of denied permissions
                             for (String permission : denied) {
@@ -89,7 +89,7 @@ public class RuntimePermissionMainActivityJava7 extends AppCompatActivity {
                         }
 
 
-                        if(!foreverDenied.isEmpty()) {
+                        if(permissionResult.hasForeverDenied()) {
                             appendText(resultView, "ForeverDenied :");
                             //the list of forever denied permissions, user has check 'never ask again'
                             for (String permission : foreverDenied) {
