@@ -4,9 +4,9 @@ import android.Manifest
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import com.github.florent37.runtimepermission.sample.AppendText.appendText
 import com.github.florent37.runtimepermission.kotlin.PermissionException
 import com.github.florent37.runtimepermission.kotlin.coroutines.experimental.askPermission
+import com.github.florent37.runtimepermission.sample.AppendText.appendText
 import kotlinx.android.synthetic.main.runtime_permissions_activity_request.*
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
@@ -37,28 +37,34 @@ class RuntimePermissionMainActivityKotlinCoroutine : AppCompatActivity() {
             resultView.setText("Accepted :${result.accepted.toString()}")
 
         } catch (e: PermissionException) {
-            appendText(resultView, "Denied :")
-            //the list of denied permissions
-            e.denied.forEach { permission ->
-                appendText(resultView, permission)
+            if (e.hasDenied()) {
+                appendText(resultView, "Denied :")
+                //the list of denied permissions
+                e.denied.forEach { permission ->
+                    appendText(resultView, permission)
+                }
+                //but you can ask them again, eg:
+
+                AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine)
+                        .setMessage("Please accept our permissions")
+                        .setPositiveButton("yes") { dialog, which ->
+                            e.askAgain()
+                        }
+                        .setNegativeButton("no") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show();
             }
-            //but you can ask them again, eg:
 
-
-            AlertDialog.Builder(this@RuntimePermissionMainActivityKotlinCoroutine)
-                    .setMessage("Please accept our permissions")
-                    .setPositiveButton("yes", { dialog, which -> /* ask again */ e.askAgain() })
-                    .setNegativeButton("no", { dialog, which -> dialog.dismiss(); })
-                    .show();
-
-
-            appendText(resultView, "ForeverDenied")
-            //the list of forever denied permissions, user has check 'never ask again'
-            e.foreverDenied.forEach { permission ->
-                appendText(resultView, permission)
+            if (e.hasForeverDenied()) {
+                appendText(resultView, "ForeverDenied")
+                //the list of forever denied permissions, user has check 'never ask again'
+                e.foreverDenied.forEach { permission ->
+                    appendText(resultView, permission)
+                }
+                //you need to open setting manually if you really need it
+                e.goToSettings();
             }
-            //you need to open setting manually if you really need it
-            //e.goToSettings();
         }
     }
 

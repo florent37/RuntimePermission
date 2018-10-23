@@ -99,7 +99,7 @@ public class RuntimePermission {
                 callback.onAccepted(permissionResult);
             }
             for (PermissionListener permissionListener : permissionListeners) {
-                permissionListener.onAccepted(this, permissionResult.getAccepted());
+                permissionListener.onAccepted(permissionResult, permissionResult.getAccepted());
             }
         }
         if (permissionResult.hasDenied()) {
@@ -115,7 +115,7 @@ public class RuntimePermission {
 
         if (permissionResult.hasForeverDenied() || permissionResult.hasDenied()) {
             for (PermissionListener permissionListener : permissionListeners) {
-                permissionListener.onDenied(this, permissionResult.getDenied(), permissionResult.getForeverDenied());
+                permissionListener.onDenied(permissionResult, permissionResult.getDenied(), permissionResult.getForeverDenied());
             }
         }
 
@@ -261,5 +261,9 @@ public class RuntimePermission {
 
     private void onAllAccepted(@NonNull final List<String> permissions) {
         onReceivedPermissionResult(permissions, null, null);
+    }
+
+    public void askAgain() {
+
     }
 }

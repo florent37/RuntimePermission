@@ -2,6 +2,7 @@ package com.github.florent37.runtimepermission.sample;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -46,28 +47,35 @@ public class RuntimePermissionMainActivityRx extends AppCompatActivity {
                     if (throwable instanceof RxPermissions.Error) {
                         final PermissionResult result = ((RxPermissions.Error) throwable).getResult();
 
-                        appendText(resultView, "Denied :");
-                        //the list of denied permissions
-                        for (String permission : result.getDenied()) {
-                            appendText(resultView, permission);
-                        }
-                        //permission denied, but you can ask again, eg:
+                        if(result.hasDenied()) {
+                            appendText(resultView, "Denied :");
+                            //the list of denied permissions
+                            for (String permission : result.getDenied()) {
+                                appendText(resultView, permission);
+                            }
+                            //permission denied, but you can ask again, eg:
 
-                            /*
-                            new AlertDialog.Builder(RuntimePermissionMainActivity.this)
+
+                            new AlertDialog.Builder(RuntimePermissionMainActivityRx.this)
                                     .setMessage("Please accept our permissions")
-                                    .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) // ask again
-                                    .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
+                                    .setPositiveButton("yes", (dialog, which) -> {
+                                        result.askAgain();
+                                    }) // ask again
+                                    .setNegativeButton("no", (dialog, which) -> {
+                                        dialog.dismiss();
+                                    })
                                     .show();
-                            */
-
-                        appendText(resultView, "ForeverDenied :");
-                        //the list of forever denied permissions, user has check 'never ask again'
-                        for (String permission : result.getForeverDenied()) {
-                            appendText(resultView, permission);
                         }
-                        // you need to open setting manually if you really need it
-                        //result.goToSettings();
+
+                        if(result.hasForeverDenied()) {
+                            appendText(resultView, "ForeverDenied :");
+                            //the list of forever denied permissions, user has check 'never ask again'
+                            for (String permission : result.getForeverDenied()) {
+                                appendText(resultView, permission);
+                            }
+                            // you need to open setting manually if you really need it
+                            result.goToSettings();
+                        }
                     }
                 });
     }

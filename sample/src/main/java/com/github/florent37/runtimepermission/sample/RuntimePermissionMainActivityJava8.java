@@ -2,6 +2,7 @@ package com.github.florent37.runtimepermission.sample;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class RuntimePermissionMainActivityJava8 extends AppCompatActivity {
         requestView.setOnClickListener(view -> myMethod());
     }
 
-    private void myMethod(){
+    private void myMethod() {
         askPermission(RuntimePermissionMainActivityJava8.this)
                 .request(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
 
@@ -38,7 +39,7 @@ public class RuntimePermissionMainActivityJava8 extends AppCompatActivity {
                     //all permissions already granted or just granted
 
                     //your action
-                    resultView.setText("Accepted :"+result.getAccepted());
+                    resultView.setText("Accepted :" + result.getAccepted());
                 })
                 .onDenied((result) -> {
                     appendText(resultView, "Denied :");
@@ -48,13 +49,15 @@ public class RuntimePermissionMainActivityJava8 extends AppCompatActivity {
                     }
                     //permission denied, but you can ask again, eg:
 
-                            /*
-                            new AlertDialog.Builder(RuntimePermissionMainActivity.this)
-                                    .setMessage("Please accept our permissions")
-                                    .setPositiveButton("yes", (dialog, which) -> { result.askAgain(); }) // ask again
-                                    .setNegativeButton("no", (dialog, which) -> { dialog.dismiss(); })
-                                    .show();
-                            */
+                    new AlertDialog.Builder(RuntimePermissionMainActivityJava8.this)
+                            .setMessage("Please accept our permissions")
+                            .setPositiveButton("yes", (dialog, which) -> {
+                                result.askAgain();
+                            }) // ask again
+                            .setNegativeButton("no", (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
 
                 })
                 .onForeverDenied((result) -> {
@@ -64,7 +67,7 @@ public class RuntimePermissionMainActivityJava8 extends AppCompatActivity {
                         appendText(resultView, permission);
                     }
                     // you need to open setting manually if you really need it
-                    //result.goToSettings();
+                    result.goToSettings();
                 })
                 .ask();
     }
