@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 . ~/.bash_profile
-./gradlew clean assembleDebug install
+./gradlew clean
+./gradlew assembleDebug
+./gradlew install
 
 ./gradlew :runtime-permission:install
 ./gradlew :runtime-permission:bintrayUpload
