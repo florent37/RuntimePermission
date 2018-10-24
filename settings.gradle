@@ -1,1 +1,4 @@
-include ':sample', ':runtime-permission', ':runtime-permission-rx', ':runtime-permission-kotlin'
+include ':runtime-permission',
+        ':runtime-permission-rx',
+        ':runtime-permission-kotlin'
+        //':sample'
