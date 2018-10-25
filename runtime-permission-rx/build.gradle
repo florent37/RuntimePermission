@@ -16,8 +16,9 @@ android {
 
 dependencies {
     api project(':runtime-permission')
-    implementation 'com.android.support:support-fragment:'+project.supportVersion
-    implementation "io.reactivex.rxjava2:rxjava:2.1.9"
+    implementation 'androidx.fragment:fragment:1.0.0'
+
+    implementation "io.reactivex.rxjava2:rxjava:2.2.2"
 }
 
 ext {

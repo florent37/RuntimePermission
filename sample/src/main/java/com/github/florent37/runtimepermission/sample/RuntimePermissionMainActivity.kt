@@ -2,7 +2,7 @@ package com.github.florent37.runtimepermission.sample
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.github.florent37.runtimepermission.RuntimePermission
 import kotlinx.android.synthetic.main.runtime_permissions_activity_main.*
 

@@ -1,17 +1,17 @@
 package com.github.florent37.runtimepermission.kotlin
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.github.florent37.runtimepermission.RuntimePermission
 import com.github.florent37.runtimepermission.PermissionResult
 
-fun Fragment.askPermission(vararg permissions: String, acceptedblock: (PermissionResult) -> Unit): KotlinRuntimePermission {
+fun androidx.fragment.app.Fragment.askPermission(vararg permissions: String, acceptedblock: (PermissionResult) -> Unit): KotlinRuntimePermission {
     return KotlinRuntimePermission(RuntimePermission.askPermission(activity)
             .request(permissions.toList())
             .onAccepted(acceptedblock))
 }
 
-fun FragmentActivity.askPermission(vararg permissions: String, acceptedblock: (PermissionResult) -> Unit): KotlinRuntimePermission {
+fun androidx.fragment.app.FragmentActivity.askPermission(vararg permissions: String, acceptedblock: (PermissionResult) -> Unit): KotlinRuntimePermission {
     return KotlinRuntimePermission(RuntimePermission.askPermission(this)
             .request(permissions.toList())
             .onAccepted(acceptedblock))

@@ -2,8 +2,8 @@ package com.github.florent37.runtimepermission.sample
 
 import android.Manifest
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.github.florent37.runtimepermission.kotlin.PermissionException
 import com.github.florent37.runtimepermission.kotlin.coroutines.experimental.askPermission
 import com.github.florent37.runtimepermission.sample.AppendText.appendText

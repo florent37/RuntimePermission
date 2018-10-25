@@ -2,10 +2,11 @@ package com.github.florent37.runtimepermission.sample;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.github.florent37.runtimepermission.RuntimePermission.askPermission;
 import static com.github.florent37.runtimepermission.sample.AppendText.appendText;

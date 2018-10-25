@@ -1,7 +1,7 @@
 package com.github.florent37.runtimepermission.rx;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import com.github.florent37.runtimepermission.PermissionResult;
 import com.github.florent37.runtimepermission.RuntimePermission;

@@ -1,7 +1,7 @@
 package com.github.florent37.runtimepermission.kotlin.coroutines.experimental
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.github.florent37.runtimepermission.RuntimePermission
 import com.github.florent37.runtimepermission.PermissionResult
 import com.github.florent37.runtimepermission.kotlin.NoActivityException
@@ -10,7 +10,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-suspend fun FragmentActivity.askPermission(vararg permissions: String): PermissionResult = suspendCoroutine { continuation ->
+suspend fun androidx.fragment.app.FragmentActivity.askPermission(vararg permissions: String): PermissionResult = suspendCoroutine { continuation ->
     var resumed = false
     RuntimePermission.askPermission(this)
             .request(permissions.toList())
@@ -26,7 +26,7 @@ suspend fun FragmentActivity.askPermission(vararg permissions: String): Permissi
             .ask()
 }
 
-suspend fun Fragment.askPermission(vararg permissions: String): PermissionResult = suspendCoroutine { continuation ->
+suspend fun androidx.fragment.app.Fragment.askPermission(vararg permissions: String): PermissionResult = suspendCoroutine { continuation ->
     var resumed = false
     when (activity) {
         null -> continuation.resumeWithException(NoActivityException())

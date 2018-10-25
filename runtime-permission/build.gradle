@@ -15,7 +15,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-fragment:'+project.supportVersion
+    implementation 'androidx.fragment:fragment:1.0.0'
 }
 
 ext {
