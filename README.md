@@ -69,7 +69,7 @@ Will ask for **CONTACTS** and **LOCALISATION** permissions
 # Kotlin-Coroutines
 
 ```kotlin
-GlobalScope.launch(Dispatchers.Main) {
+yourScope.launch {
     try {
         val result = askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
         //all permissions already granted or just granted
