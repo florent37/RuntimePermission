@@ -210,7 +210,7 @@ public class RuntimePermission {
     /**
      * Ask for the permission. Which permission? Anything you register on your manifest that needs it.
      * It is safe to call this every time without querying `shouldAsk`.
-     * In case you call `ask` without needing any permission, bitteBitte will immediately receive `yesYouCan()`
+     * In case you call `ask` without any permission, the method returns.
      */
     public void ask() {
         final FragmentActivity activity = activityReference.get();
@@ -221,7 +221,7 @@ public class RuntimePermission {
         //retrieve permissions we want
         final List<String> permissions = findNeededPermissions(activity);
 
-        //ne need < Android Marshmallow
+        // No need to ask for permissions on API levels below Android Marshmallow
         if (permissions.isEmpty() || Build.VERSION.SDK_INT < Build.VERSION_CODES.M || arePermissionsAlreadyAccepted(activity, permissions)) {
             onAllAccepted(permissions);
         } else {
