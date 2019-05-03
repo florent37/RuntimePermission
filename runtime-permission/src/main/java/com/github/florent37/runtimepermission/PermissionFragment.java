@@ -25,7 +25,7 @@ public class PermissionFragment extends Fragment {
     private PermissionListener listener;
 
     public PermissionFragment() {
-        setRetainInstance(true);
+
     }
 
     public static PermissionFragment newInstance(List<String> permissions) {
