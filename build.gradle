@@ -30,12 +30,11 @@ ext {
     MIN_SDK = 14
     sourceCompatibilityVersion = JavaVersion.VERSION_1_8
     targetCompatibilityVersion = JavaVersion.VERSION_1_8
-    supportVersion = "27.0.2"
 
     github = 'https://github.com/florent37/RuntimePermission'
 
     libraryGroup = 'com.github.florent37'
     libraryName = 'runtime-permission'
-    libraryVersion = "1.1.0"
+    libraryVersion = "1.1.1"
     libraryDescription = 'Runtime Permission'
 }

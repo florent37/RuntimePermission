@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/RuntimePermission.iml" filepath="$PROJECT_DIR$/.idea/RuntimePermission.iml" />
       <module fileurl="file://$PROJECT_DIR$/RuntimePermission.iml" filepath="$PROJECT_DIR$/RuntimePermission.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime-permission/runtime-permission.iml" filepath="$PROJECT_DIR$/runtime-permission/runtime-permission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runtime-permission/runtime-permission.iml" filepath="$PROJECT_DIR$/runtime-permission/runtime-permission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runtime-permission-kotlin/runtime-permission-kotlin.iml" filepath="$PROJECT_DIR$/runtime-permission-kotlin/runtime-permission-kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime-permission-kotlin/runtime-permission-kotlin.iml" filepath="$PROJECT_DIR$/runtime-permission-kotlin/runtime-permission-kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime-permission-rx/runtime-permission-rx.iml" filepath="$PROJECT_DIR$/runtime-permission-rx/runtime-permission-rx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runtime-permission-rx/runtime-permission-rx.iml" filepath="$PROJECT_DIR$/runtime-permission-rx/runtime-permission-rx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>
