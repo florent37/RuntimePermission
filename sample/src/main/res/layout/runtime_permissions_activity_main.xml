@@ -36,6 +36,12 @@
         android:text="KotlinCoroutine" />
 
     <Button
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Fragment" />
+
+    <Button
         android:id="@+id/openSettings"
         android:layout_width="match_parent"
         android:layout_height="60dp"
