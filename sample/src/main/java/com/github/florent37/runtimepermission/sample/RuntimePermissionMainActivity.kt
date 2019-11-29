@@ -3,6 +3,7 @@ package com.github.florent37.runtimepermission.sample
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.github.florent37.runtimepermission.PermissionFragment
 import com.github.florent37.runtimepermission.RuntimePermission
 import kotlinx.android.synthetic.main.runtime_permissions_activity_main.*
 
@@ -41,12 +42,20 @@ class RuntimePermissionMainActivity : AppCompatActivity() {
             open(RuntimePermissionMainActivityKotlinCoroutine::class.java)
         }
 
+        fragment.setOnClickListener{
+            supportFragmentManager.beginTransaction()
+                    .replace(android.R.id.content, RuntimePermissionInFragment.newInstance())
+                    .addToBackStack(null)
+                    .commitAllowingStateLoss()
+        }
+
+
         openSettings.setOnClickListener {
             RuntimePermission(this).goToSettings()
         }
     }
 
-    private fun open(classActivity: Class<*>){
+    private fun open(classActivity: Class<*>) {
         startActivity(Intent(this, classActivity));
     }
 }

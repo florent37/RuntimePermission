@@ -6,11 +6,13 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.florent37.runtimepermission.callbacks.AcceptedCallback;
 import com.github.florent37.runtimepermission.callbacks.DeniedCallback;
@@ -73,7 +75,7 @@ public class RuntimePermission {
      */
     public static RuntimePermission askPermission(@Nullable final Fragment fragment, String... permissions) {
         @Nullable FragmentActivity activity = null;
-        if(fragment != null){
+        if (fragment != null) {
             activity = fragment.getActivity();
         }
         return askPermission(activity).request(permissions);
@@ -127,6 +129,7 @@ public class RuntimePermission {
     /**
      * We want to only request given permissions
      * If we do not call this method, the library will find all needed permissions to ask from manifest
+     *
      * @see android.Manifest.permission
      */
     public RuntimePermission request(@Nullable final List<String> permissions) {
@@ -229,7 +232,7 @@ public class RuntimePermission {
                     .getSupportFragmentManager()
                     .findFragmentByTag(TAG);
 
-            if(oldFragment != null){
+            if (oldFragment != null) {
                 oldFragment.setListener(listener);
             } else {
                 final PermissionFragment newFragment = PermissionFragment.newInstance(permissions);
@@ -241,7 +244,8 @@ public class RuntimePermission {
                         activity.getSupportFragmentManager()
                                 .beginTransaction()
                                 .add(newFragment, TAG)
-                                .commitNowAllowingStateLoss();
+                                .commitAllowingStateLoss();
+                        // change to .commitNowAllowingStateLoss() to see the crash
                     }
                 });
 
@@ -252,7 +256,7 @@ public class RuntimePermission {
     private boolean arePermissionsAlreadyAccepted(@NonNull Context context, @NonNull final List<String> permissions) {
         for (String permission : permissions) {
             final int permissionState = ContextCompat.checkSelfPermission(context, permission);
-            if(permissionState == PackageManager.PERMISSION_DENIED){
+            if (permissionState == PackageManager.PERMISSION_DENIED) {
                 return false;
             }
         }
