@@ -21,7 +21,7 @@ This will not cut your code flow
 [ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
 ```java
 dependencies {
-    implementation 'com.github.florent37:runtime-permission:(lastest version)'
+    implementation 'com.github.florent37:RuntimePermission:v1.1.2' // (or latest version)
 }
 ```
 
